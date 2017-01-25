@@ -6,13 +6,12 @@ public class PlayerController : MonoBehaviour {
 
     private Player player;
     private Vector3 velocity;
-
+    
     private float maxVelocity = 0.3f;
 
 	// Use this for initialization
 	void Start () {
         player = GetComponent<Player>();
-       
     }
 	
 	// Update is called once per frame
@@ -20,6 +19,7 @@ public class PlayerController : MonoBehaviour {
         HandleVelocity();
         Move();
     }
+
 
     void HandleVelocity()
     {
