@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour {
 
     [Header("Players List")]
     public List<Player> players;
+    
 
     [Header("Player 1 Inputs")]
     public string LeftKeyP1;
@@ -35,6 +36,7 @@ public class InputManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+
         leftKeyCodeP1 = (KeyCode)System.Enum.Parse(typeof(KeyCode), LeftKeyP1);
         rightKeyCodeP1 = (KeyCode)System.Enum.Parse(typeof(KeyCode), RightKeyP1);
         downKeyCodeP1 = (KeyCode)System.Enum.Parse(typeof(KeyCode), DownKeyP1);
