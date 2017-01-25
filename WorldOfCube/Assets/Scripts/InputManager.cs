@@ -26,10 +26,10 @@ public class InputManager : MonoBehaviour {
         upKeyCodeP1;
 
     private KeyCode
-     leftKeyCodeP2,
-     rightKeyCodeP2,
-     downKeyCodeP2,
-     upKeyCodeP2;
+        leftKeyCodeP2,
+        rightKeyCodeP2,
+        downKeyCodeP2,
+        upKeyCodeP2;
 
 
     // Use this for initialization

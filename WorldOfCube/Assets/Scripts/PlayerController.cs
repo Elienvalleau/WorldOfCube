@@ -7,7 +7,10 @@ public class PlayerController : MonoBehaviour {
     private Player player;
     private Vector3 velocity;
 
-    private float maxVelocity = 0.3f;
+    [SerializeField]
+    private float maxVelocity = 10f;
+    [SerializeField]
+    private float moveForce = 50f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         HandleVelocity();
         Move();
     }
@@ -25,19 +28,19 @@ public class PlayerController : MonoBehaviour {
     {
         float xVelocity = 0;
         float zVelocity = 0;
+        Vector3 speed = GetComponent<Rigidbody>().velocity;
 
-        if (player.KeyDownPressed)
-            zVelocity = maxVelocity;
+        if (player.KeyDownPressed && speed.z < maxVelocity)
+            zVelocity = moveForce;
 
-        if (player.KeyUpPressed)
-            zVelocity = -maxVelocity;
+        if (player.KeyUpPressed && speed.z > -maxVelocity)
+            zVelocity = -moveForce;
 
+        if (player.KeyLeftPressed && speed.x < maxVelocity)
+            xVelocity = moveForce;
 
-        if (player.KeyLeftPressed)
-            xVelocity = maxVelocity;
-
-        if (player.KeyRightPressed)
-            xVelocity = -maxVelocity;
+        if (player.KeyRightPressed && speed.x > -maxVelocity)
+            xVelocity = -moveForce;
 
         velocity = new Vector3(xVelocity, 0, zVelocity);
     }
@@ -45,16 +48,6 @@ public class PlayerController : MonoBehaviour {
 
     void Move()
     {
-        transform.Translate(velocity);
-    }
-
-    void OnTriggerEnter(Collider collider)
-    {
-
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("J'ai touché : " + collision.collider.name);
+        GetComponent<Rigidbody>().AddForce(velocity, ForceMode.Acceleration);
     }
 }
