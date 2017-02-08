@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShoot : MonoBehaviour {
+public class PlayerShoot2 : MonoBehaviour
+{
 
     private Player player;
     //public Rigidbody rb;
@@ -14,18 +15,20 @@ public class PlayerShoot : MonoBehaviour {
     private int compteur = 0;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         player = GetComponent<Player>();
         forGround = GameObject.FindGameObjectWithTag("ForGround");
 
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         /*Debug.Log(GetComponent<Player>().KeyLeftShotPressed);*/
-        if (Input.GetButtonDown("Fire5") || Input.GetButtonDown("Fire6") || Input.GetButtonDown("Fire7") || Input.GetButtonDown("Fire8"))
+        if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2") || Input.GetButtonDown("Fire3") || Input.GetButtonDown("Fire4"))
         {
-            if(compteur <= 0)
+            if (compteur <= 0)
             {
                 shotPosition.x = this.gameObject.transform.position.x;
                 shotPosition.y = this.gameObject.transform.position.y;
@@ -38,7 +41,7 @@ public class PlayerShoot : MonoBehaviour {
                         instance.name = shot.name;
 
                         //if (Input.GetButtonDown("Fire1"))
-                          //  Debug.Log("OK left2");
+                        //  Debug.Log("OK left2");
 
                         //instance.transform.parent = forGround.transform.parent;
                         break;
@@ -52,5 +55,5 @@ public class PlayerShoot : MonoBehaviour {
         }
         compteur -= 1;
 
-	}
+    }
 }
