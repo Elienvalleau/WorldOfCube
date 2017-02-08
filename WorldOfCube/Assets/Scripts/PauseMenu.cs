@@ -36,4 +36,10 @@ public class PauseMenu : MonoBehaviour {
         this.isEnabled = false;
         Time.timeScale = 1;
     }
+
+    public void Retour()
+    {
+        Application.LoadLevel("Menu");
+        Time.timeScale = 1;
+    }
 }
