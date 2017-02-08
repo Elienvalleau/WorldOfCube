@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerShoot : MonoBehaviour {
+public class PlayerShoot : MonoBehaviour
+{
 
     private Player player;
     //public Rigidbody rb;
@@ -14,22 +15,35 @@ public class PlayerShoot : MonoBehaviour {
     private int compteur = 0;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         player = GetComponent<Player>();
         forGround = GameObject.FindGameObjectWithTag("ForGround");
 
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate ()
+    {
         /*Debug.Log(GetComponent<Player>().KeyLeftShotPressed);*/
-        if (Input.GetButtonDown("Fire5") || Input.GetButtonDown("Fire6") || Input.GetButtonDown("Fire7") || Input.GetButtonDown("Fire8"))
+
+        bool leftFired = false;
+        bool rightFired = false;
+        bool upFired = false;
+        bool downFired = false;
+
+        rightFired = Input.GetButtonDown("Fire5");
+        leftFired = Input.GetButtonDown("Fire6");
+        upFired = Input.GetButtonDown("Fire7");
+        downFired = Input.GetButtonDown("Fire8");
+
+        if (rightFired || leftFired || upFired || downFired)
         {
             if(compteur <= 0)
             {
-                shotPosition.x = this.gameObject.transform.position.x;
-                shotPosition.y = this.gameObject.transform.position.y;
-                shotPosition.z = this.gameObject.transform.position.z;
+                //shotPosition.x = this.gameObject.transform.position.x;
+                //shotPosition.y = this.gameObject.transform.position.y;
+                //shotPosition.z = this.gameObject.transform.position.z;
 
                 switch (typeShot)
                 {
@@ -37,8 +51,23 @@ public class PlayerShoot : MonoBehaviour {
                         GameObject instance = (GameObject)GameObject.Instantiate(shot, transform.position, this.gameObject.transform.rotation);
                         instance.name = shot.name;
 
+                        Vector3 direction = new Vector3();
+
+                        if (rightFired)
+                            direction = new Vector3(-30, 0, 0);
+
+                        else if (leftFired)
+                            direction = new Vector3(30, 0, 0);
+
+                        else if(upFired)
+                            direction = new Vector3(0, 0, -30);
+
+                        else  direction = new Vector3(0, 0, 30);
+
+                        instance.GetComponent<MoveObject>().direction = direction;
+
                         //if (Input.GetButtonDown("Fire1"))
-                          //  Debug.Log("OK left2");
+                        //  Debug.Log("OK left2");
 
                         //instance.transform.parent = forGround.transform.parent;
                         break;

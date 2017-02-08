@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Player))]
 public class MoveObject2 : MonoBehaviour
 {
-
+    public Vector3 direction { get; set; }
     //public float speedX = 3;
     private Player player;
     public Rigidbody rb;
@@ -20,19 +20,12 @@ public class MoveObject2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shot();
+        //Shot();
+        Move();
     }
 
-    void Shot()
+    void Move()
     {
-        if (Input.GetButtonDown("Fire1"))
-            rb.velocity = new Vector3(-30, 0, 0);
-        if (Input.GetButtonDown("Fire2"))
-            rb.velocity = new Vector3(30, 0, 0);
-        if (Input.GetButtonDown("Fire3"))
-            rb.velocity = new Vector3(0, 0, -30);
-        if (Input.GetButtonDown("Fire4"))
-            rb.velocity = new Vector3(0, 0, 30);
-
+        rb.velocity = direction;
     }
 }
