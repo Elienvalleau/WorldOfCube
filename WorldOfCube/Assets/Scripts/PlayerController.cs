@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody rb;
     private Vector3 velocity;
+<<<<<<< HEAD
 
     [SerializeField]
     private float maxVelocity = 15f;
@@ -20,6 +21,25 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+=======
+    
+    private float maxVelocity = 0.3f;
+
+	// Use this for initialization
+	void Start () {
+        player = GetComponent<Player>();
+    }
+	
+	// Update is called once per frame
+	void Update () {
+        HandleVelocity();
+        Move();
+    }
+
+
+    void HandleVelocity()
+    {
+>>>>>>> master
         float xVelocity = 0;
         float zVelocity = 0;
         float horizontal = Input.GetAxis("Horizontal");
