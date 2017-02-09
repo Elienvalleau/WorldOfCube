@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour {
                 rbVelocity.x = 0;
                 rb.velocity = rbVelocity;
             }
-            //xVelocity = moveForce * horizontal;
             rbVelocity.x = maxVelocity * horizontal;
             rb.velocity = rbVelocity;
 
@@ -53,7 +52,6 @@ public class PlayerController : MonoBehaviour {
                 rbVelocity.z = 0;
                 rb.velocity = rbVelocity;
             }
-            //zVelocity = moveForce * vertical;
             rbVelocity.z = maxVelocity * vertical;
             rb.velocity = rbVelocity;
         } else if (vertical == 0)
