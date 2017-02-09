@@ -38,22 +38,16 @@ public class InputManager : MonoBehaviour {
         upShotKeyCodeP1;
 
     private KeyCode
-<<<<<<< HEAD
+
         leftKeyCodeP2,
         rightKeyCodeP2,
         downKeyCodeP2,
-        upKeyCodeP2;
+        upKeyCodeP2,
+        leftShotKeyCodeP2,
+        rightShotKeyCodeP2,
+        downShotKeyCodeP2,
+        upShotKeyCodeP2;
 
-=======
-     leftKeyCodeP2,
-     rightKeyCodeP2,
-     downKeyCodeP2,
-     upKeyCodeP2,
-     leftShotKeyCodeP2,
-     rightShotKeyCodeP2,
-     downShotKeyCodeP2,
-     upShotKeyCodeP2;
->>>>>>> master
 
     // Use this for initialization
     void Start ()

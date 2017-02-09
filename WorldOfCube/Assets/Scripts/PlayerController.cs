@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody rb;
     private Vector3 velocity;
-<<<<<<< HEAD
 
     [SerializeField]
     private float maxVelocity = 15f;
@@ -21,25 +20,6 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-=======
-    
-    private float maxVelocity = 0.3f;
-
-	// Use this for initialization
-	void Start () {
-        player = GetComponent<Player>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        HandleVelocity();
-        Move();
-    }
-
-
-    void HandleVelocity()
-    {
->>>>>>> master
         float xVelocity = 0;
         float zVelocity = 0;
         float horizontal = Input.GetAxis("Horizontal");
@@ -56,7 +36,10 @@ public class PlayerController : MonoBehaviour {
                 rbVelocity.x = 0;
                 rb.velocity = rbVelocity;
             }
-            xVelocity = moveForce * horizontal;
+            //xVelocity = moveForce * horizontal;
+            rbVelocity.x = maxVelocity * horizontal;
+            rb.velocity = rbVelocity;
+
         } else if (horizontal == 0)
         {
             rbVelocity.x = 0;
@@ -70,7 +53,9 @@ public class PlayerController : MonoBehaviour {
                 rbVelocity.z = 0;
                 rb.velocity = rbVelocity;
             }
-            zVelocity = moveForce * vertical;
+            //zVelocity = moveForce * vertical;
+            rbVelocity.z = maxVelocity * vertical;
+            rb.velocity = rbVelocity;
         } else if (vertical == 0)
         {
             rbVelocity.z = 0;
@@ -78,8 +63,8 @@ public class PlayerController : MonoBehaviour {
         }
 
 
-        velocity = new Vector3(xVelocity, 0, zVelocity);
-        rb.AddForce(velocity, ForceMode.Acceleration);
+//        velocity = new Vector3(xVelocity, 0, zVelocity);
+//        rb.AddForce(velocity, ForceMode.Acceleration);
     }
 
 //  void OnGUI()
