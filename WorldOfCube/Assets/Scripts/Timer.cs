@@ -2,21 +2,22 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class myTimer : MonoBehaviour {
-
-    public float myCoolTimer = 99;
-    private Text timerText;
-
+public class Timer : MonoBehaviour {
+    private float x;
+    private int timer;
+    private string str;
+   
 
 	// Use this for initialization
 	void Start () {
-        timerText = GetComponent<Text>();
+        timer = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        myCoolTimer += Time.deltaTime;
-        timerText.text = myCoolTimer.ToString("f0");
-        print(myCoolTimer);
+        x += Time.deltaTime;
+        timer = (int)x;
+        str = timer.ToString();
+        GameObject.Find("Timer").GetComponent<Text>().text = str;
 	}
 }

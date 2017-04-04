@@ -38,16 +38,14 @@ public class InputManager : MonoBehaviour {
         upShotKeyCodeP1;
 
     private KeyCode
-
-        leftKeyCodeP2,
-        rightKeyCodeP2,
-        downKeyCodeP2,
-        upKeyCodeP2,
-        leftShotKeyCodeP2,
-        rightShotKeyCodeP2,
-        downShotKeyCodeP2,
-        upShotKeyCodeP2;
-
+     leftKeyCodeP2,
+     rightKeyCodeP2,
+     downKeyCodeP2,
+     upKeyCodeP2,
+     leftShotKeyCodeP2,
+     rightShotKeyCodeP2,
+     downShotKeyCodeP2,
+     upShotKeyCodeP2;
 
     // Use this for initialization
     void Start ()
@@ -78,18 +76,18 @@ public class InputManager : MonoBehaviour {
         players[0].KeyRightPressed = Input.GetKey(rightKeyCodeP1);
         players[0].KeyDownPressed = Input.GetKey(downKeyCodeP1);
         players[0].KeyUpPressed = Input.GetKey(upKeyCodeP1);
-        players[0].KeyLeftShotPressed = Input.GetKey(leftShotKeyCodeP1);
+        /*players[0].KeyLeftShotPressed = Input.GetKey(leftShotKeyCodeP1);
         players[0].KeyRightShotPressed = Input.GetKey(rightShotKeyCodeP1);
         players[0].KeyDownShotPressed = Input.GetKey(downShotKeyCodeP1);
-        players[0].KeyUpShotPressed = Input.GetKey(upShotKeyCodeP1);
+        players[0].KeyUpShotPressed = Input.GetKey(upShotKeyCodeP1);*/
 
         players[1].KeyLeftPressed = Input.GetKey(leftKeyCodeP2);
         players[1].KeyRightPressed = Input.GetKey(rightKeyCodeP2);
         players[1].KeyDownPressed = Input.GetKey(downKeyCodeP2);
         players[1].KeyUpPressed = Input.GetKey(upKeyCodeP2);
-        players[1].KeyLeftShotPressed = Input.GetKey(leftShotKeyCodeP2);
+        /*players[1].KeyLeftShotPressed = Input.GetKey(leftShotKeyCodeP2);
         players[1].KeyRightShotPressed = Input.GetKey(rightShotKeyCodeP2);
         players[1].KeyDownShotPressed = Input.GetKey(downShotKeyCodeP2);
-        players[1].KeyUpShotPressed = Input.GetKey(upShotKeyCodeP2);
+        players[1].KeyUpShotPressed = Input.GetKey(upShotKeyCodeP2);*/
     }
 }

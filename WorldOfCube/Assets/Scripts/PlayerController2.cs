@@ -39,7 +39,9 @@ public class PlayerController2 : MonoBehaviour
                 rbVelocity.x = 0;
                 rb.velocity = rbVelocity;
             }
-            xVelocity = moveForce * horizontal;
+            rbVelocity.x = maxVelocity * horizontal;
+            rb.velocity = rbVelocity;
+
         }
         else if (horizontal == 0)
         {
@@ -54,7 +56,8 @@ public class PlayerController2 : MonoBehaviour
                 rbVelocity.z = 0;
                 rb.velocity = rbVelocity;
             }
-            zVelocity = moveForce * vertical;
+            rbVelocity.z = maxVelocity * vertical;
+            rb.velocity = rbVelocity;
         }
         else if (vertical == 0)
         {
@@ -63,19 +66,19 @@ public class PlayerController2 : MonoBehaviour
         }
 
 
-        velocity = new Vector3(xVelocity, 0, zVelocity);
-        rb.AddForce(velocity, ForceMode.Acceleration);
+        //        velocity = new Vector3(xVelocity, 0, zVelocity);
+        //        rb.AddForce(velocity, ForceMode.Acceleration);
     }
 
-//  void OnGUI()
-//  {
-//      float rbVelocityX = rb.velocity.x;
-//      float rbVelocityZ = rb.velocity.z;
-//      float horizontal = Input.GetAxis("Horizontal2");
-//      float vertical = Input.GetAxis("Vertical2");
-//      GUI.Label(new Rect(10, 10, 150, 20), "Horizontal " + horizontal);
-//      GUI.Label(new Rect(10, 30, 150, 20), "Vertical " + vertical);
-//      GUI.Label(new Rect(10, 40, 150, 20), "rbVelocityX " + rbVelocityX);
-//      GUI.Label(new Rect(10, 50, 150, 20), "rbVelocityZ " + rbVelocityZ);
-//  }
+    //  void OnGUI()
+    //  {
+    //      float rbVelocityX = rb.velocity.x;
+    //      float rbVelocityZ = rb.velocity.z;
+    //      float horizontal = Input.GetAxis("Horizontal");
+    //      float vertical = Input.GetAxis("Vertical");
+    //      GUI.Label(new Rect(10, 10, 150, 20), "Horizontal " + horizontal);
+    //      GUI.Label(new Rect(10, 30, 150, 20), "Vertical " + vertical);
+    //      GUI.Label(new Rect(10, 40, 150, 20), "rbVelocityX " + rbVelocityX);
+    //      GUI.Label(new Rect(10, 50, 150, 20), "rbVelocityZ " + rbVelocityZ);
+    //  }
 }

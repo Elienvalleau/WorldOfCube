@@ -7,12 +7,13 @@ public class PlayerShoot : MonoBehaviour
     private Player player;
     //public Rigidbody rb;
     public GameObject shot;
-    public int coolDown = 0;
-
+    // public int coolDown = 0;
+    private float fireSpellStart = 0f;
+    private float fireSpellCooldown = 0.5f; 
     private int typeShot = 1;
     private Vector3 shotPosition;
     private GameObject forGround;
-    private int compteur = 0;
+    //private int compteur = 0;
 
     // Use this for initialization
     void Start ()
@@ -32,15 +33,16 @@ public class PlayerShoot : MonoBehaviour
         bool upFired = false;
         bool downFired = false;
 
-        rightFired = Input.GetButtonDown("Fire5");
-        leftFired = Input.GetButtonDown("Fire6");
-        upFired = Input.GetButtonDown("Fire7");
-        downFired = Input.GetButtonDown("Fire8");
+        rightFired = Input.GetButton("Fire5");
+        leftFired = Input.GetButton("Fire6");
+        upFired = Input.GetButton("Fire7");
+        downFired = Input.GetButton("Fire8");
 
         if (rightFired || leftFired || upFired || downFired)
         {
-            if(compteur <= 0)
+            if (Time.time > fireSpellStart + fireSpellCooldown)
             {
+                fireSpellStart = Time.time;
                 //shotPosition.x = this.gameObject.transform.position.x;
                 //shotPosition.y = this.gameObject.transform.position.y;
                 //shotPosition.z = this.gameObject.transform.position.z;
@@ -76,10 +78,10 @@ public class PlayerShoot : MonoBehaviour
 
                         break;
                 }
-                compteur = coolDown;
+                
             }
         }
-        compteur -= 1;
+        
 
 	}
 }
